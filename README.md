@@ -137,7 +137,7 @@ This system automates the process using Machine Learning.
 
 ### ✔ Real-Time Prediction
 
-• Flask web application
+• FlastApi web application
 • REST-based prediction system
 
 ---
@@ -236,7 +236,7 @@ docker build -t vehicle-insurance .
 Run container:
 
 ```bash
-docker run -p 5080:5080 vehicle-insurance
+docker run -p 8000:8000 vehicle-insurance
 ```
 
 ---
@@ -289,7 +289,7 @@ python app.py
 ## 🌐 Live Application
 
 ```
-http://<EC2-PUBLIC-IP>:5080
+http://<EC2-PUBLIC-IP>:8000
 ```
 
 ---
