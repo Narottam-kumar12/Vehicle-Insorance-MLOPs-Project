@@ -1,116 +1,327 @@
-This version is designed to be visually striking, easy to scan, and optimized for hiring managers who may only spend 30 seconds looking at your repository. It uses professional formatting, clear hierarchy, and industry-standard documentation practices.
+
+# 🚀 Vehicle Insurance Risk Prediction System
+
+### Production-Grade End-to-End MLOps Pipeline with AWS, Docker & CI/CD
 
 ---
 
-# 🚗 Vehicle Data ML-Ops Pipeline
-
-> **A Production-Grade End-to-End Machine Learning Ecosystem**
-
-<br />
-
-## 🌟 Project Overview
-
-Handling machine learning models in a notebook is easy; bringing them into production is where the challenge lies. This project solves the **"Deployment Gap"** by building a fully automated **ML-Ops Pipeline**.
-
-From the moment data hits the **MongoDB** database to its final deployment as a **Dockerized container on AWS**, every step—ingestion, validation, transformation, and evaluation—is code-driven and automated.
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Machine Learning](https://img.shields.io/badge/Machine-Learning-orange)
+![MLOps](https://img.shields.io/badge/MLOps-Production-green)
+![AWS](https://img.shields.io/badge/AWS-Cloud-yellow)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-black)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
 
 ---
 
-## 🛠 Tech Stack
+## 📌 Overview
 
-| Layer | Technologies |
-| --- | --- |  
-| **Language** | 'python' |
-| **Data Storage** |  |
-| **Infrastructure** |  |
-| **DevOps** |  |
-| **ML Libraries** | `Scikit-learn`, `Pandas`, `XGBoost`, `EvidentlyAI` |
+This project is a **production-ready, end-to-end Machine Learning system** designed to predict vehicle insurance risk using modern **MLOps architecture and cloud deployment**.
+
+The system automates the complete ML lifecycle — from **data ingestion to model deployment and real-time prediction**, following industry standards used in large-scale ML systems.
+
+It demonstrates strong expertise in:
+
+• Machine Learning Engineering
+• MLOps and CI/CD
+• Cloud Deployment (AWS)
+• Production-level system design
 
 ---
 
-## 🏗 System Architecture & Workflow
+## 🧠 Business Problem
 
-The pipeline is designed with a **Modular Component Architecture**, ensuring high maintainability and scalability.
+Insurance providers need to identify high-risk customers to:
 
-### **The Pipeline Flow:**
+• Reduce claim losses
+• Improve risk assessment
+• Optimize premium pricing
+• Prevent fraud
 
-1. **Data Ingestion:** Securely pulls raw vehicle data from MongoDB Atlas.
-2. **Data Validation:** Checks for schema consistency and data drift using a predefined YAML schema.
-3. **Data Transformation:** Automates feature engineering and handles class imbalances.
-4. **Model Trainer:** Trains the model and exports artifacts (Pickle files).
-5. **Model Evaluation:** Compares the "Candidate" model with the "Production" model stored in **AWS S3**.
-6. **Model Pusher:** If the candidate model is better (threshold > 2%), it is automatically pushed to the **S3 Model Registry**.
+Manual analysis is slow and inefficient.
+
+This system automates the process using Machine Learning.
+
+---
+
+## 🏗️ System Architecture
+
+```
+                    ┌────────────────────┐
+                    │   MongoDB Atlas    │
+                    │   (Cloud Data)    │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Data Ingestion     │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Data Validation    │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Data Transformation│
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Model Trainer      │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Model Evaluation   │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ AWS S3 Model Store│
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Prediction Pipeline│
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Flask Web App     │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Docker Container  │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ AWS EC2 Deployment│
+                    └────────────────────┘
+```
+
+---
+
+## ⚙️ Key Features
+
+### ✔ End-to-End ML Pipeline
+
+• Automated training pipeline
+• Modular architecture
+• Artifact tracking
+• Reproducible workflows
+
+### ✔ Cloud-Native Deployment
+
+• AWS EC2 deployment
+• AWS S3 model registry
+• MongoDB Atlas integration
+
+### ✔ CI/CD Automation
+
+• GitHub Actions pipeline
+• Automatic Docker build
+• Automated deployment
+
+### ✔ Production-Ready Design
+
+• Logging system
+• Exception handling
+• Config-driven pipeline
+• Scalable architecture
+
+### ✔ Real-Time Prediction
+
+• Flask web application
+• REST-based prediction system
+
+---
+
+## 🛠️ Technology Stack
+
+### Programming
+
+• Python
+• Flask
+
+### Machine Learning
+
+• Scikit-learn
+• Pandas
+• NumPy
+
+### Database
+
+• MongoDB Atlas
+
+### Cloud
+
+• AWS EC2
+• AWS S3
+• AWS ECR
+
+### MLOps Tools
+
+• Docker
+• GitHub Actions
+• CI/CD
 
 ---
 
 ## 📂 Project Structure
 
-```bash
-├── .github/workflows   # 🚀 CI/CD pipeline definitions
-├── src/                # 💻 Core source code
-│   ├── components      # Data Ingestion -> Model Pusher
-│   ├── entity          # Configuration and Artifact schemas
-│   ├── pipeline        # Training & Prediction logic
-│   └── utils           # Helper functions (AWS/S3/MongoDB)
-├── static/             # 🎨 UI CSS and JS
-├── templates/          # 📄 HTML Web Interfaces
-├── Dockerfile          # 🐳 Containerization instructions
-└── app.py              # 🔌 Flask/FastAPI Gateway
-
+```
+.
+├── src/
+│   ├── components/
+│   ├── configuration/
+│   ├── data_access/
+│   ├── entity/
+│   ├── pipeline/
+│   ├── aws_storage/
+│   ├── utils/
+│   ├── logger/
+│   └── exception/
+│
+├── notebook/
+├── templates/
+├── static/
+├── artifact/
+├── app.py
+├── demo.py
+├── Dockerfile
+├── requirements.txt
+├── setup.py
+└── pyproject.toml
 ```
 
 ---
 
-## 🚀 Installation & Local Setup
+## 🔄 CI/CD Pipeline
 
-### **1. Environment Setup**
+```
+Developer Push Code
+        │
+        ▼
+GitHub Actions Triggered
+        │
+        ▼
+Docker Image Build
+        │
+        ▼
+Push to AWS ECR
+        │
+        ▼
+Deploy on AWS EC2
+        │
+        ▼
+Application Live
+```
+
+---
+
+## 🐳 Docker Deployment
+
+Build Docker image:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/vehicle-mlops.git
+docker build -t vehicle-insurance .
+```
 
-# Create and Activate Environment
+Run container:
+
+```bash
+docker run -p 5080:5080 vehicle-insurance
+```
+
+---
+
+## ☁️ AWS Deployment
+
+Services used:
+
+• AWS EC2 → Application hosting
+• AWS S3 → Model storage
+• AWS ECR → Docker image registry
+
+---
+
+## 🚀 Run Locally
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Narottam-kumar12/Vehicle-Insorance-MLOPs-Project.git
+```
+
+### Create Environment
+
+```bash
 conda create -n vehicle python=3.10 -y
 conda activate vehicle
-
-# Install dependencies
-pip install -r requirements.txt
-
 ```
 
-### **2. Set Secret Keys**
+### Install Requirements
 
 ```bash
-# Mac/Linux
-export MONGODB_URL="your_mongodb_connection_string"
-export AWS_ACCESS_KEY_ID="your_aws_key"
-export AWS_SECRET_ACCESS_KEY="your_aws_secret"
+pip install -r requirements.txt
+```
 
-# Windows (Powershell)
-$env:MONGODB_URL="your_mongodb_connection_string"
+### Run Training
 
+```bash
+python demo.py
+```
+
+### Run Application
+
+```bash
+python app.py
 ```
 
 ---
 
-## 📈 Results & Performance
+## 🌐 Live Application
 
-* **Model Performance:** Achieved an F1-Score of **0.XX** on validation sets.
-* **Automation:** Reduced deployment time from hours to **under 5 minutes** via CI/CD.
-* **Reliability:** Implemented automated data validation, reducing "Garbage In, Garbage Out" risks.
+```
+http://<EC2-PUBLIC-IP>:5080
+```
 
 ---
 
-## 💡 Key Engineering Highlights (Placement Ready)
+## 📊 MLOps Best Practices Used
 
-* **Scalable Codebase:** Used "Entity-Component" design patterns for clean, production-grade code.
-* **Cloud Native:** Integrated AWS S3 for model versioning and ECR for container management.
-* **CI/CD Proficiency:** Established a self-hosted runner on EC2 for secure, automated deployments.
-* **Containerization:** Utilized Docker to eliminate the "it works on my machine" problem.
+✔ Modular architecture
+✔ Cloud model registry
+✔ CI/CD automation
+✔ Docker containerization
+✔ Artifact management
+✔ Logging and monitoring
+✔ Reproducible pipelines
+
+---
+
+## 🎯 Skills Demonstrated
+
+Machine Learning Engineering
+MLOps Engineering
+Cloud Deployment
+System Design
+CI/CD Pipeline Development
 
 ---
 
 ## 👨‍💻 Author
 
-**Narottam Kumar** *Computer Science & Engineering | MMMUT Gorakhpur* [](https://www.linkedin.com/in/narottam-kumar-a16a04293/)
-[](https://github.com/Narottam-kumar12)
+**Narottam Kumar**
+
+B.Tech Computer Science Engineering
+Machine Learning | MLOps | Data Science
+
+GitHub:
+[https://github.com/Narottam-kumar12](https://github.com/Narottam-kumar12)
